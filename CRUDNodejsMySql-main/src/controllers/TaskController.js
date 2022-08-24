@@ -16,12 +16,15 @@ function create(req, res) {
 
 function store(req, res) {
   const data = req.body;
-
+  console.log(data)
   req.getConnection((err, conn) => {
+    if(!err) console.log('d')
     conn.query('INSERT INTO tasks SET ?', [data], (err, rows) => {
+      if(!err) console.log('d')
       res.redirect('/tasks');
     });
   });
+
 }
 
 function destroy(req, res) {

@@ -4,6 +4,7 @@ const myconnection = require('express-myconnection');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const tasksRoutes = require('./routes/tasks');
+const comRoutes = require('./routes/comportamiento');
 
 const app = express();
 app.set('port', 4000);
@@ -32,6 +33,7 @@ app.listen(app.get('port'), () => {
 });
 
 app.use('/', tasksRoutes);
+app.use('/', comRoutes);
 
 app.get('/', (req, res) => {
   res.render('home');
